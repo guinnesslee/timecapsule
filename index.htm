@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Time Capsule</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-
+1.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+var localStorageKey;
+var localArtistsKey = 1;
+</script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/
+jquery.mobile-1.0.min.js"></script>
+<script src="index.js"></script>
+<script src="addartist.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div data-role="page" id="index" data-theme="b">
+<div data-role="header" data-theme="b">
+<a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+<a href="#login" data-rel="dialog" class="ui-btn-right">Login</a>
+<h1>Time Capsule</h1>
+</div>
+<div data-role="content">
+<ul data-role="listview" data-inset="true" data-divider-theme="b">
+<li data-role="list-divider">Summary</li>
+<li><a href="#profile">Profile</a></li>
+<li><a href="#addartist" data-rel="dialog">Add Artist</a></li>
+<li><a href="#timecapsules">Time Capsules</a></li>
+<li><a href="#settings">Settings</a></li>
+</ul>
+<ul data-role="listview" data-inset="true" data-divider-theme="d">
+<li data-role="list-divider">Links</li>
+<li><a href="http://www.cadburys.com">Cadburys</a></li>
+</ul>
+</div>
+<div data-role="footer" data-theme="b">
+<h4>&copy; 2012  Team Time Capsule </h4>
+</div>
+</div>
+
+<div data-role="page" id="profile" data-theme="b">
+   <!-- Header -->
+   <div data-role="header" data-theme="b">
+   <script src="profile.js"></script>
+   <a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+   <a href="#index" data-icon="arrow-l" data-rel="back">Back</a>
+      <h1>Profile</h1>
+   </div>
+   <!-- Content -->
+   <div data-role="content">
+      <h2>Profile</h2>
+      <p id="output"></p>
+	  <a id="btnFavourites" href="#index" data-role="button">Favourites</a> 
+   </div>
+   <!-- Footer -->
+   <div data-role="footer" data-theme="b">
+      <h4>&copy; 2012  Team Time Capsule</h4>
+   </div>
+</div>
+
+<div data-role="page" id="upload" data-theme="b">
+   <!-- Header -->
+   <div data-role="header" data-theme="b">
+   <a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+   <a href="#index" data-icon="arrow-l" data-rel="back">Back</a>
+      <h1>Profile</h1>
+   </div>
+   <!-- Content -->
+   <div data-role="content">
+      <h2>Profile</h2>
+      <p>Find my friend <a href="#index">here</a></p>
+   </div>
+   <!-- Footer -->
+   <div data-role="footer" data-theme="b">
+      <h4>&copy; 2012  Team Time Capsule</h4>
+   </div>
+</div>
+
+<div data-role="page" id="timecapsules" data-theme="b">
+   <!-- Header -->
+   <div data-role="header" data-theme="b">
+   <a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+   <a href="#index" data-icon="arrow-l" data-rel="back">Back</a>
+      <h1>Profile</h1>
+   </div>
+   <!-- Content -->
+	<div data-role="content">
+	<ul data-role="listview" data-inset="true" data-divider-theme="b">
+	<li data-role="list-divider">Time Capsules</li>
+	<li><a href="#viewtimecapsules">View Time Capsules</a></li>
+	<li><a href="#viewartiststimecapsules">View Artist's Time Capsules</a></li>
+	</ul>
+	</div>
+   <!-- Footer -->
+   <div data-role="footer" data-theme="b">
+      <h4>&copy; 2012  Team Time Capsule</h4>
+   </div>
+</div>
+
+<div data-role="page" id="viewtimecapsules" data-theme="b">
+<div data-role="header" data-theme="b">
+<script src="feeds.js"></script>
+<a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+<h1>Time Capsule</h1>
+</div>
+<div data-role="content">
+<ul data-role="listview" data-inset="true" data-divider-theme="d">
+<li data-role="list-divider">List</li>
+<div id="mybox" data-theme="b"></div>
+</ul>
+</div>
+<div data-role="footer" data-theme="b">
+<h4>&copy; 2012  Team Time Capsule </h4>
+</div>
+</div>
+
+<div data-role="page" id="viewartiststimecapsules" data-theme="b">
+<div data-role="header" data-theme="b">
+<script src="artistsfeeds.js"></script>
+<a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+<h1>Artists Time Capsules</h1>
+</div>
+<div data-role="content">
+<ul data-role="listview" data-inset="true" data-divider-theme="d">
+<li data-role="list-divider">List</li>
+<div id="mybox" data-theme="b"></div>
+</ul>
+</div>
+<div data-role="footer" data-theme="b">
+<h4>&copy; 2012  Team Time Capsule </h4>
+</div>
+</div>
+
+<div data-role="page" id="settings" data-theme="b">
+   <!-- Header -->
+   <div data-role="header" data-theme="b">
+   <a href="#index" data-icon="home" data-iconpos="notext">Home</a>
+   <a href="#index" data-icon="arrow-l" data-rel="back">Back</a>
+      <h1>Settings</h1>
+   </div>
+   <!-- Content -->
+	<div data-role="content">
+      <h2>Settings</h2>
+      <p>Find my friend <a href="#index">here</a></p>
+	</div>
+   <!-- Footer -->
+   <div data-role="footer" data-theme="b">
+      <h4>&copy; 2012  Team Time Capsule</h4>
+   </div>
+</div>
+
+<!-- Login Box -->
+<div data-role="page" id="login">	
+
+<div data-role="header" data-theme="b">
+
+<h1>Login</h1>
+</div>
+
+<div data-role="content" data-theme="b">
+
+       <!--<form action="/FormActions/login.ashx" method="POST" data-theme="b">-->
+	   
+           <fieldset>
+
+           <label for="username">Username:</label>
+           <input type="text" name="username" id="username" value=""  />
+
+           <label for="password">Password:</label>
+           <input type="password" name="password" id="password" value="" />
+
+               <!--<input id="submit" type="submit" value="Login" data-role="button" data-inline="true" data-theme="b" />-->
+			   <a id="btnLogin" href="#index" data-role="button">Login</a>
+           <hr />
+           Don't have a login? <a href="#index">Sign Up</a>
+           </fieldset>
+       <!--</form>-->
+       
+</div>
+	   
+</div>
+<!-- Login Box -->
+
+<!-- Add Artist Box -->
+<div data-role="page" id="addartist">	
+
+<div data-role="header" data-theme="b">
+
+<h1>Add artist</h1>
+</div>
+
+<div data-role="content" data-theme="b">
+
+       <!--<form action="/FormActions/login.ashx" method="POST" data-theme="b">-->
+	   
+           <fieldset>
+
+           <label for="artist">Username:</label>
+           <input type="text" name="artistusername" id="artistusername" value=""  />
+		   
+               <!--<input id="submit" type="submit" value="Login" data-role="button" data-inline="true" data-theme="b" />-->
+			   <a id="btnAddArtist" href="#index" data-role="button">Add Artist</a>
+           <hr />
+		   
+           </fieldset>
+       <!--</form>-->
+       
+</div>
+	   
+</div>
+<!-- Add Artist Box -->
+
+</body>
+</html>

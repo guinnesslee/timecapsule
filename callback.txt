@@ -1,0 +1,15 @@
+<script type="text/javascript">
+  function youtubeFeedCallback( data )
+  {
+    document.writeln( '<img src="' + data.entry[ "media$group" ][ "media$thumbnail" ][ 0 ].url + '" width="' + data.entry[ "media$group" ][ "media$thumbnail" ][ 0 ].width + '" height="' + data.entry[ "media$group" ][ "media$thumbnail" ][ 0 ].height + '" alt="Default Thumbnail" align="right"/>' );
+    document.writeln( '<b>Title:</b> ' + data.entry[ "title" ].$t + '<br/>' );
+    document.writeln( '<b>Author:</b> ' + data.entry[ "author" ][ 0 ].name.$t + '<br/>' );
+    document.writeln( '<b>Published:</b> ' + new Date( data.entry[ "published" ].$t.substr( 0, 4 ), data.entry[ "published" ].$t.substr( 5, 2 ) - 1, data.entry[ "published" ].$t.substr( 8, 2 ) ).toLocaleDateString( ) + '<br/>' );
+    document.writeln( '<b>Duration:</b> ' + Math.floor( data.entry[ "media$group" ][ "yt$duration" ].seconds / 60 ) + ':' + ( data.entry[ "media$group" ][ "yt$duration" ].seconds % 60 ) + ' (' + data.entry[ "media$group" ][ "yt$duration" ].seconds + ' seconds)<br/>' );
+    document.writeln( '<b>Rating:</b> ' + new Number( data.entry[ "gd$rating" ].average ).toFixed( 1 ) + ' out of ' + data.entry[ "gd$rating" ].max + '; ' + data.entry[ "gd$rating" ].numRaters + ' rating(s)' + '<br/>' );
+    document.writeln( '<b>Statistics:</b> ' + data.entry[ "yt$statistics" ].favoriteCount + ' favorite(s); ' + data.entry[ "yt$statistics" ].viewCount + ' view(s)' + '<br/>' );
+    document.writeln( '<br/>' + data.entry[ "media$group" ][ "media$description" ].$t.replace( /\n/g, '<br/>' ) + '<br/>' );
+    document.writeln( '<br/><a href="' + data.entry[ "media$group" ][ "media$player" ].url + '" target="_blank">Watch on YouTube</a>' );
+  }
+</script>
+<script type="text/javascript" src="http://gdata.youtube.com/feeds/api/videos/gzDS-Kfd5XQ?v=2&amp;alt=json-in-script&amp;callback=youtubeFeedCallback"></script>
